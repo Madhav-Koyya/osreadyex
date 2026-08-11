@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osready"
+version = "0.1.0"
+description = "Checks whether a repository is ready for a pull request."
+requires-python = ">=3.8"
+
+[project.scripts]
+osready = "osready.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["osready*"]
