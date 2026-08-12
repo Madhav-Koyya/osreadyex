@@ -4,9 +4,24 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "osready"
-version = "0.1.0"
+version = "0.1.1"
 description = "Checks whether a repository is ready for a pull request."
+readme = "README.md"
 requires-python = ">=3.8"
+license = { file = "LICENSE" }
+
+authors = [
+    { name = "Pankaj Kandpal" },
+        { name = "Karishma Mandal" }
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Software Development :: Quality Assurance",
+]
 
 [project.scripts]
 osready = "osready.cli:main"
