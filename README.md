@@ -56,8 +56,7 @@ osready/
 Every check is a small, independent function with the same contract:
 it takes a repo path and returns one `CheckResult`. That's what makes
 this a good project to practice contributing to — see
-[CONTRIBUTING.md](CONTRIBUTING.md) and [ISSUES.md](ISSUES.md) for how
-to add your own.
+[CONTRIBUTING.md](CONTRIBUTING.md) 
 
 ## Why only one check per category?
 
