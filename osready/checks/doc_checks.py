@@ -17,6 +17,8 @@ from osready.models import CheckResult
 # We accept a few common spellings/casings for the README file.
 README_NAMES = ["README.md", "README.rst", "README.txt", "readme.md"]
 
+LICENSE_NAMES = ["LICENSE", "LICENSE.md", "LICENSE.txt"]
+
 
 def check_readme_exists(repo_path: str) -> CheckResult:
     """
@@ -45,7 +47,32 @@ def check_readme_exists(repo_path: str) -> CheckResult:
         severity="medium",
     )
 
+def check_license_exists(repo_path: str) -> CheckResult:
+    """
+    Looks in the top level of the repo for any file matching one of
+    the names in LICENSE_NAMES. Doesn't check the file's content —
+    just whether it exists.
+    """
+    for filename in LICENSE_NAMES:
+        if os.path.isfile(os.path.join(repo_path, filename)):
+            return CheckResult(
+                name="LICENSE present",
+                passed=True,
+                message=f"Found {filename}.",
+                severity="medium",
+            )
+
+    return CheckResult(
+        name="LICENSE present",
+        passed=False,
+        message=(
+            "No LICENSE file found. A license helps clarify how the "
+            "project can be used, modified, and distributed."
+        ),
+        severity="medium",
+    )
 
 CHECKS = [
     check_readme_exists,
+    check_license_exists,
 ]
